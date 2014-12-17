@@ -8,13 +8,16 @@
 
         <title>*|RSSFEED:TITLE|*</title>
     <style type="text/css">
-.posts img{
-  max-width: 400px;
-  height: auto !important;
-}
-.wp-caption {
-  width: inherit !important;
-}
+      .posts img{
+        max-width: 400px;
+        height: auto !important;
+      }
+      .wp-caption {
+        width: inherit !important;
+      }
+      a.title, a.title .h1 {
+        text-decoration: none !important;
+      }
       /* Client-specific Styles */
       #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
       body{width:100% !important;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
@@ -483,10 +486,10 @@
                                                    *|END:RSSITEMS|*
                                                 </div>
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                                            <!-- *|IFNOT:ARCHIVE_PAGE|* *|ARCHIVE|* -->
                       <td valign="top" width="190">
                                               <div mc:edit="std_preheader_links">
-                                                  Is this email not displaying correctly?<br><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
+                                                  Is this email not displaying correctly?<br><a href="*|RSSITEM:URL|*" target="_blank">View it in your browser</a>.
                                                 </div>
                                             </td>
                       <!-- *|END:IF|* -->
@@ -539,9 +542,12 @@
                                                                               <td valign="top">
                                                                                 <div style="width:400px" mc:edit="std_content00" class="posts">
                                                                                   *|RSSITEMS:|*
-
+<a href="*|RSSITEM:URL|*" target="_blank" class="title">
                                                                                     <h1 class="h1">*|RSSITEM:TITLE|*</h1>
-                     <div style="width:100%">*|RSSITEM:IMAGE|*</div>                                                               <p>By *|RSSITEM:AUTHOR|* on *|RSSITEM:DATE|*</p>
+
+                     <div style="width:100%">*|RSSITEM:IMAGE|*</div>
+</a>
+                                                                                    <p>By *|RSSITEM:AUTHOR|* on *|RSSITEM:DATE|*</p>
                                                                                     <div>
                                                                                       *|RSSITEM:CONTENT_FULL|*
                                                                                     </div>
